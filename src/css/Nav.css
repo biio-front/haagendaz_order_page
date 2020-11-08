@@ -1,0 +1,18 @@
+.menu {
+  width: var(--width-minus_margin);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: var(--font-big);
+  padding: 20px 0;
+  margin: 0 var(--margin-side);
+}
+
+.menu li {
+  text-align: center;
+}
+
+.menu a {
+  color: var(--color-light_main);
+  padding: 10px 13px;
+}
