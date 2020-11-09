@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/haagendaz_order_page/static/css/main.e0d1b730.chunk.css",
-    "main.js": "/haagendaz_order_page/static/js/main.eba5c015.chunk.js",
-    "main.js.map": "/haagendaz_order_page/static/js/main.eba5c015.chunk.js.map",
+    "main.js": "/haagendaz_order_page/static/js/main.78ea1070.chunk.js",
+    "main.js.map": "/haagendaz_order_page/static/js/main.78ea1070.chunk.js.map",
     "runtime-main.js": "/haagendaz_order_page/static/js/runtime-main.7bd99ca2.js",
     "runtime-main.js.map": "/haagendaz_order_page/static/js/runtime-main.7bd99ca2.js.map",
     "static/js/2.246cc52c.chunk.js": "/haagendaz_order_page/static/js/2.246cc52c.chunk.js",
     "static/js/2.246cc52c.chunk.js.map": "/haagendaz_order_page/static/js/2.246cc52c.chunk.js.map",
     "index.html": "/haagendaz_order_page/index.html",
-    "precache-manifest.5c1ba400173d5b5e1bcf749c002faee0.js": "/haagendaz_order_page/precache-manifest.5c1ba400173d5b5e1bcf749c002faee0.js",
+    "precache-manifest.54728def17f115e45b2e086211186303.js": "/haagendaz_order_page/precache-manifest.54728def17f115e45b2e086211186303.js",
     "service-worker.js": "/haagendaz_order_page/service-worker.js",
     "static/css/main.e0d1b730.chunk.css.map": "/haagendaz_order_page/static/css/main.e0d1b730.chunk.css.map",
     "static/js/2.246cc52c.chunk.js.LICENSE.txt": "/haagendaz_order_page/static/js/2.246cc52c.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.7bd99ca2.js",
     "static/js/2.246cc52c.chunk.js",
     "static/css/main.e0d1b730.chunk.css",
-    "static/js/main.eba5c015.chunk.js"
+    "static/js/main.78ea1070.chunk.js"
   ]
 }
