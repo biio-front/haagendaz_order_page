@@ -31,13 +31,22 @@ class App extends Component {
   clickItem(data, e) {
     const selectedItem = e.target.dataset.id;
     const target = data.find(item => item.id === Number(selectedItem));
-    if(target === null) return;
+    if (target === null) return;
     this.setState({ is_item_clicked: true, item_clicked: target });
   }
 
   // 팝업 창의 x표를 누를 시, 팝업창이 사라짐.
   closeItemPopup() {
     this.setState({ is_item_clicked: false, item_clicked: [] });
+  }
+
+  // 아이스크림 카트에 담기
+  clickForCart(item_data) {
+    const item = item_data;
+    const { items_in_cart } = this.state;
+    const _items_in_cart = Array.from(items_in_cart);
+    _items_in_cart.push(item);
+    this.setState({ items_in_cart: _items_in_cart });
   }
 
   // 메뉴를 클릭 했을 때, 메뉴에 해당하는 아이스크림 리스트가 화면에 표시됨.
@@ -61,21 +70,18 @@ class App extends Component {
       );
     else if (mode === "bar")
       return (
-        <Items data={data.bar} onClickItem={e => this.clickItem(data.bar, e)} />
+        <Items 
+          data={data.bar} 
+          onClickItem={e => this.clickItem(data.bar, e)} 
+        />
       );
     else if (mode === "con")
       return (
-        <Items data={data.con} onClickItem={e => this.clickItem(data.con, e)} />
+        <Items 
+          data={data.con} 
+          onClickItem={e => this.clickItem(data.con, e)} 
+        />
       );
-  }
-
-  // 아이스크림 카트에 담기
-  clickForCart(item_data) {
-    const item = item_data;
-    const { items_in_cart } = this.state;
-    const _items_in_cart = Array.from(items_in_cart);
-    _items_in_cart.push(item);
-    this.setState({ items_in_cart: _items_in_cart });
   }
 
   render() {
