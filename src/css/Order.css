@@ -57,7 +57,7 @@
 
 .order_list__item img {
   width: 120px;
-  padding-right: var(--padding-side);
+  padding: 0 var(--padding-side);
 }
 
 .order_list__info {
@@ -98,14 +98,10 @@
 
 /* check box to delete */
 .order_list__delete {
-  display: flex;
-  align-items: center;
-  padding: 12px 0;
-}
-
-.order_list__delete_btn {
-  padding-left: var(--padding-side);
+  margin-left: 15px;
+  padding: 7px 0;
   color: var(--color-gray);
+  font-size: var(--font-micro);
 }
 
 .total_order {

@@ -31,7 +31,6 @@ class App extends Component {
   clickItem(data, e) {
     const selectedItem = e.target.dataset.id;
     const target = data.find(item => item.id === Number(selectedItem));
-    if (target === null) return;
     this.setState({ is_item_clicked: true, item_clicked: target });
   }
 
