@@ -27,9 +27,8 @@ class Order extends Component {
   deleteItem() {
     const { items, checked_id } = this.state;
     let _items = Array.from(items);
-    for(let i in checked_id){
-      _items = _items.filter(item => item.id !== checked_id[i])
-    }
+    _items = _items.filter(item => checked_id.indexOf(item.id) === -1);
+    console.log(_items);
     this.setState({ items: _items });
   }
 
