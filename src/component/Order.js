@@ -26,9 +26,7 @@ class Order extends Component {
   // 체크한 아이템 삭제
   deleteItem() {
     const { items, checked_id } = this.state;
-    let _items = Array.from(items);
-    _items = _items.filter(item => checked_id.indexOf(item.id) === -1);
-    console.log(_items);
+    let _items = items.filter(item => checked_id.indexOf(item.id) === -1);
     this.setState({ items: _items });
   }
 
