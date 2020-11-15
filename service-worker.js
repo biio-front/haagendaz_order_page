@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/haagendaz_order_page/precache-manifest.e3de03f2b159db2116fe6f80f87c6974.js"
+  "/haagendaz_order_page/precache-manifest.6d6bb76a1f879c9791e55c56ed7b0370.js"
 );
 
 self.addEventListener('message', (event) => {
