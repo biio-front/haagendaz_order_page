@@ -9,9 +9,9 @@
 }
 
 .item {
-  width: calc(100% / 3);
+  width: calc(100% / 3 - 10px);
   text-align: center;
-  padding: 10px 0 10px;
+  margin: 10px 5px;
   cursor: pointer;
 }
 

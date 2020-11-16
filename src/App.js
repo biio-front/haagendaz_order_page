@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import icecreamData from "./data/data.json";
 import Header from "./component/Header";
@@ -9,108 +9,92 @@ import ShoppingCart from "./component/ShoppingCart";
 import Order from "./component/Order";
 import Footer from "./component/Footer";
 
-class App extends Component {
-  state = {
-    mode: "pint",
-    is_item_clicked: false,
-    item_clicked: [],
-    items_in_cart: [],
-  };
+function App() {
+  const [mode, setMode] = useState("pint");
+  const [is_item_clicked, setIsClick] = useState(false);
+  const [item_clicked, setClicked] = useState([]);
+  const [items_in_cart, setCart] = useState([]);
 
-  changeMode(changeMode) {
-    this.setState({ mode: changeMode });
-  }
+  const changeMode = changeMode => setMode(changeMode);
 
   // 메뉴 클릭 시 화면 바뀜.
-  changeMenu(e) {
-    const selectedMenu = e.target.dataset.menu;
-    if(selectedMenu !== "none") this.changeMode(selectedMenu);
-  }
+  const changeMenu = event => {
+    const selectedMenu = event.target.dataset.menu;
+    if (selectedMenu !== "none") changeMode(selectedMenu);
+  };
 
   // 아이스크림 리스트(메뉴아래 항목들)을 클릭 했을 때, 팝업창이 뜸.
-  clickItem(data, e) {
-    const selectedItem = e.target.dataset.id;
-    if(selectedItem !== "none"){
+  const clickItem = (data, event) => {
+    const selectedItem = event.target.dataset.id;
+    if (selectedItem !== "none") {
       const target = data.find(item => item.id === Number(selectedItem));
-      this.setState({ is_item_clicked: true, item_clicked: target });
+      setIsClick(true);
+      setClicked(target);
     }
-  }
+  };
 
   // 팝업 창의 x표를 누를 시, 팝업창이 사라짐.
-  closeItemPopup() {
-    this.setState({ is_item_clicked: false, item_clicked: [] });
-  }
+  const closeItemPopup = () => {
+    setIsClick(false);
+    setClicked([]);
+  };
 
   // 아이스크림 카트에 담기
-  clickForCart(item_data) {
+  const clickForCart = item_data => {
     const item = item_data;
-    const { items_in_cart } = this.state;
-    const _items_in_cart = Array.from(items_in_cart);
+    const _items_in_cart = [...items_in_cart];
     _items_in_cart.push(item);
-    this.setState({ items_in_cart: _items_in_cart });
-  }
+    setCart(_items_in_cart);
+  };
 
   // 메뉴를 클릭 했을 때, 메뉴에 해당하는 아이스크림 리스트가 화면에 표시됨.
-  changeItem() {
-    const { mode } = this.state;
+  const changeItem = () => {
     const data = icecreamData;
 
     if (mode === "pint")
       return (
-        <Items
-          data={data.pint}
-          onClickItem={e => this.clickItem(data.pint, e)}
-        />
+        <Items data={data.pint} onClickItem={e => clickItem(data.pint, e)} />
       );
     else if (mode === "mini")
       return (
-        <Items
-          data={data.mini}
-          onClickItem={e => this.clickItem(data.mini, e)}
-        />
+        <Items data={data.mini} onClickItem={e => clickItem(data.mini, e)} />
       );
     else if (mode === "bar")
       return (
-        <Items data={data.bar} onClickItem={e => this.clickItem(data.bar, e)} />
+        <Items data={data.bar} onClickItem={e => clickItem(data.bar, e)} />
       );
     else if (mode === "con")
       return (
-        <Items data={data.con} onClickItem={e => this.clickItem(data.con, e)} />
+        <Items data={data.con} onClickItem={e => clickItem(data.con, e)} />
       );
-  }
+  };
 
-  render() {
-    const { mode, is_item_clicked, item_clicked, items_in_cart } = this.state;
-
-    return (
-      <div className="App">
-        <Header onHome={() => this.changeMode("pint")} />
-        {mode !== "order" ? (
-          <Nav onChangePage={e => this.changeMenu(e)} />
-        ) : null}
-        {mode !== "order" ? (
-          <main>
-            {this.changeItem()}
-            {is_item_clicked ? (
-              <ClickItem
-                item={item_clicked}
-                onClose={() => this.closeItemPopup()}
-                onPutItem={item_data => this.clickForCart(item_data)}
-                onChangePage={() => this.changeMode("order")}
-              />
-            ) : null}
-            <ShoppingCart
-              items={items_in_cart}
-              onChangePage={() => this.changeMode("order")}
+  return (
+    <div className="App">
+      <Header onHome={() => changeMode("pint")} />
+      {mode !== "order" ? <Nav onChangePage={e => changeMenu(e)} /> : null}
+      {mode !== "order" ? (
+        <main>
+          {changeItem()}
+          {is_item_clicked ? (
+            <ClickItem
+              item={item_clicked}
+              onClose={() => closeItemPopup()}
+              onPutItem={item_data => clickForCart(item_data)}
+              onChangePage={() => changeMode("order")}
             />
-          </main>
-        ) : (
-          <Order items={items_in_cart} />
-        )}
-        <Footer />
-      </div>
-    );
-  }
+          ) : null}
+          <ShoppingCart
+            items={items_in_cart}
+            onChangePage={() => changeMode("order")}
+          />
+        </main>
+      ) : (
+        <Order items={items_in_cart} />
+      )}
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
