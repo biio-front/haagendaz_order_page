@@ -1,40 +1,36 @@
-import React, { Component } from "react";
+import React from "react";
 
-class OrderItem extends Component {
-  checkedItem(e, id) {
-    e.target.checked ? this.props.onCheck(id) : this.props.unCheck(id);
-  }
+function OrderItem(props) {
+  const checkedItem = (e, id) => e.target.checked ? props.onCheck(id) : props.unCheck(id);
+  const { id, name, sort, price, picture, i } = props;
 
-  render() {
-    const { id, name, sort, price, picture, i } = this.props;
-
-    return (
-      <li className="order_list__li">
-        <input
-          type="checkbox"
-          name="chk_delete"
-          id={id}
-          onClick={e => this.checkedItem(e, id)}
-        />
-        <div className="order_list__item">
-          <div className="order_list__item_container">
-            <img src={picture} alt={sort} />
-            <div className="order_list__info">
-              <div>
-                <p className="order_list__name">{name}</p>
-                <p className="order_list__sort">{sort}</p>
-                <p className="order_list__item_price">
-                  {price.toLocaleString()}원
-                </p>
-              </div>
-              <p className="order_list__count">{i}개</p>
+  return (
+    <li className="order_list__li">
+      <input
+        type="checkbox"
+        name="chk_delete"
+        id={id}
+        onClick={e => checkedItem(e, id)}
+      />
+      <div className="order_list__item">
+        <div className="order_list__item_container">
+          <img src={picture} alt={sort} />
+          <div className="order_list__info">
+            <div>
+              <p className="order_list__name">{name}</p>
+              <p className="order_list__sort">{sort}</p>
+              <p className="order_list__item_price">
+                {price.toLocaleString()}원
+              </p>
             </div>
+            <p className="order_list__count">{i}개</p>
           </div>
-          <p className="order_list__price">{(price * i).toLocaleString()}원</p>
         </div>
-      </li>
-    );
-  }
+        <p className="order_list__price">{(price * i).toLocaleString()}원</p>
+      </div>
+    </li>
+  );
+
 }
 
 export default OrderItem;

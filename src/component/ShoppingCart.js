@@ -1,4 +1,5 @@
 import React from "react";
+import '../css/ShoppingCart.css';
 
 function ShoppingCart(props) {
     const { items } = props;

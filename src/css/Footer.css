@@ -1,0 +1,13 @@
+footer {
+  height: 60px;
+  background-color: var(--color-main);
+  color: var(--color-light_gray);
+  position: fixed;
+  bottom: 0;
+}
+
+footer p {
+  font-size: 10px;
+  padding-top: 30px;
+  text-align: center;
+}

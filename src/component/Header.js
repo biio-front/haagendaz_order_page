@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/Header.css';
 import logo from '../0_haagen-dazs-logo.png';
 
 function Header(props){
