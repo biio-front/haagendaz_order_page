@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "76ed0e085299336de3b1a4aa9a3626cf",
+    "revision": "889e0c8fac80c29b43494a7b5fcd2b09",
     "url": "/haagendaz_order_page/index.html"
   },
   {
-    "revision": "4c15caf14fe8a77b3253",
+    "revision": "c5164bcc189359930c93",
     "url": "/haagendaz_order_page/static/css/main.1b4591dc.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/haagendaz_order_page/static/js/2.1951058e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4c15caf14fe8a77b3253",
-    "url": "/haagendaz_order_page/static/js/main.453611c1.chunk.js"
+    "revision": "c5164bcc189359930c93",
+    "url": "/haagendaz_order_page/static/js/main.1df79f74.chunk.js"
   },
   {
     "revision": "6a26bd194ffc4a9f1c0d",
