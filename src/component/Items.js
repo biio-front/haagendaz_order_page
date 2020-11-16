@@ -9,6 +9,7 @@ function Items(props) {
     <section>
       <ul
         className="items"
+        data-id="none"
         onClick={e => {
           e.preventDefault();
           props.onClickItem(e);

@@ -24,14 +24,16 @@ class App extends Component {
   // 메뉴 클릭 시 화면 바뀜.
   changeMenu(e) {
     const selectedMenu = e.target.dataset.menu;
-    this.changeMode(selectedMenu);
+    if(selectedMenu !== "none") this.changeMode(selectedMenu);
   }
 
   // 아이스크림 리스트(메뉴아래 항목들)을 클릭 했을 때, 팝업창이 뜸.
   clickItem(data, e) {
     const selectedItem = e.target.dataset.id;
-    const target = data.find(item => item.id === Number(selectedItem));
-    this.setState({ is_item_clicked: true, item_clicked: target });
+    if(selectedItem !== "none"){
+      const target = data.find(item => item.id === Number(selectedItem));
+      this.setState({ is_item_clicked: true, item_clicked: target });
+    }
   }
 
   // 팝업 창의 x표를 누를 시, 팝업창이 사라짐.
@@ -69,17 +71,11 @@ class App extends Component {
       );
     else if (mode === "bar")
       return (
-        <Items 
-          data={data.bar} 
-          onClickItem={e => this.clickItem(data.bar, e)} 
-        />
+        <Items data={data.bar} onClickItem={e => this.clickItem(data.bar, e)} />
       );
     else if (mode === "con")
       return (
-        <Items 
-          data={data.con} 
-          onClickItem={e => this.clickItem(data.con, e)} 
-        />
+        <Items data={data.con} onClickItem={e => this.clickItem(data.con, e)} />
       );
   }
 
