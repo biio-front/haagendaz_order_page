@@ -19,11 +19,7 @@ function Items(props) {
           return (
             <Item
               key={item.id}
-              id={item.id}
-              name={item.name}
-              sort={item.sort}
-              price={item.price.toLocaleString()}
-              picture={item.picture}
+              {...item}
             />
           );
         })}

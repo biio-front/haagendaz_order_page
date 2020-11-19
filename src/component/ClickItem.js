@@ -1,16 +1,16 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { add } from "../store";
 import "../css/ClickItem.css";
+import { Link } from "react-router-dom";
 
 function ClickItem(props) {
-  const { item } = props;
-  const { name, sort, amount, price, picture } = props.item;
-  const [item_data, setData] = useState({ ...item, i: 1 });
-  const { i } = item_data;
-
+  const { item, addItem_Cart } = props;
+  const { name, sort, amount, price, picture } = item;
+  const [i, setNumber] = useState(1);
   const increaseOrDecrease = formula => {
-    const _item_data = { ...item_data };
-    _item_data.i = formula;
-    setData(_item_data);
+    const _i = formula;
+    setNumber(formula);
   };
 
   return (
@@ -59,27 +59,33 @@ function ClickItem(props) {
         <div className="click_item__btn">
           <button
             onClick={() => {
-              props.onPutItem(item_data);
+              addItem_Cart({ ...item, i: i });
               props.onClose();
             }}
           >
             장바구니
           </button>
-          <a
-            href="/order"
-            onClick={e => {
-              e.preventDefault();
-              props.onPutItem(item_data);
-              props.onChangePage();
-              props.onClose();
-            }}
-          >
-            주문하기
-          </a>
+          <Link to="/order">
+            <button
+              onClick={() => {
+                addItem_Cart({ ...item, i: i });
+                props.onChangePage();
+                props.onClose();
+              }}
+            >
+              주문하기
+            </button>
+          </Link>
         </div>
       </div>
     </aside>
   );
 }
 
-export default ClickItem;
+function mapDispatchToProps(dispatch) {
+  return {
+    addItem_Cart: data => dispatch(add(data)),
+  };
+}
+
+export default connect(null, mapDispatchToProps)(ClickItem);

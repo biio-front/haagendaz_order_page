@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "../css/Order.css";
 import OrderItem from "./OrderItem";
+import { connect } from "react-redux";
+import { remove } from "../store";
 
-function Order(props) {
-  const [items, setItems] = useState(props.items);
+function Order({ items, deleteItem_cart }) {
   const [checked_id, setCheId] = useState([]);
 
   // 체크한 아이템 state에 넣기
@@ -19,12 +20,6 @@ function Order(props) {
     setCheId(_checked_id);
   };
 
-  // 체크한 아이템 삭제
-  const deleteItem = () => {
-    let _items = items.filter(item => checked_id.indexOf(item.id) === -1);
-    setItems(_items);
-  };
-
   return (
     <section className="order_container">
       <h3 className="order_title">주문하기</h3>
@@ -34,12 +29,7 @@ function Order(props) {
             items.map(item => (
               <OrderItem
                 key={item.id}
-                id={item.id}
-                name={item.name}
-                sort={item.sort}
-                price={item.price}
-                picture={item.picture}
-                i={item.i}
+                {...item}
                 onCheck={id => checkForDelete(id)}
                 unCheck={id => uncheck(id)}
               />
@@ -49,7 +39,10 @@ function Order(props) {
           )}
         </ul>
         {items.length > 0 ? (
-          <button className="order_list__delete" onClick={() => deleteItem()}>
+          <button
+            className="order_list__delete"
+            onClick={() => deleteItem_cart(checked_id)}
+          >
             선택한 상품 삭제하기
           </button>
         ) : null}
@@ -70,4 +63,11 @@ function Order(props) {
   );
 }
 
-export default Order;
+function mapStateToProps(state) {
+  return { items: state };
+}
+function mapDispatchToProps(dispatch) {
+  return { deleteItem_cart: checked_id => dispatch(remove(checked_id)) };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Order);
