@@ -8,10 +8,8 @@ function ClickItem(props) {
   const { item, addItem_Cart } = props;
   const { name, sort, amount, price, picture } = item;
   const [i, setNumber] = useState(1);
-  const increaseOrDecrease = formula => {
-    const _i = formula;
-    setNumber(formula);
-  };
+  const increase = () => setNumber(i + 1);
+  const decrease = () => i > 1 ? setNumber(i - 1) : null;
 
   return (
     <aside className="click_item_container">
@@ -29,18 +27,14 @@ function ClickItem(props) {
             <div className="click_item__count">
               <button
                 className="click_item__minus"
-                onClick={() => {
-                  if (i > 1) increaseOrDecrease(i - 1);
-                }}
+                onClick={decrease}
               >
                 -
               </button>
               <p className="click_item__number">{i}</p>
               <button
                 className="click_item__plus"
-                onClick={() => {
-                  increaseOrDecrease(i + 1);
-                }}
+                onClick={increase}
               >
                 +
               </button>
@@ -59,22 +53,19 @@ function ClickItem(props) {
         <div className="click_item__btn">
           <button
             onClick={() => {
-              addItem_Cart({ ...item, i: i });
+              addItem_Cart({ ...item, i });
               props.onClose();
             }}
           >
             장바구니
           </button>
-          <Link to="/order">
-            <button
-              onClick={() => {
-                addItem_Cart({ ...item, i: i });
-                props.onChangePage();
-                props.onClose();
-              }}
-            >
-              주문하기
-            </button>
+          <Link to="/order"
+            onClick={() => {
+              addItem_Cart({ ...item, i });
+              props.onClose();
+            }}
+          >
+            주문하기
           </Link>
         </div>
       </div>

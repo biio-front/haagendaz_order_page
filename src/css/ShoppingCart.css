@@ -33,6 +33,7 @@
 }
 
 .shopping_cart__order {
+  width: 92px;
   font-size: var(--font-medium);
   font-weight: bold;
   color: var(--color-light_main);

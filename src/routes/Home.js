@@ -1,24 +1,14 @@
 import React, { useState } from "react";
-import icecreamData from "../data/data.json";
-import Header from "../component/Header";
+import data from "../data/data.json";
 import Nav from "../component/Nav";
 import Items from "../component/Items";
 import ClickItem from "../component/ClickItem";
 import ShoppingCart from "../component/ShoppingCart";
-import Footer from "../component/Footer";
+import { HashRouter as Route, Switch } from "react-router-dom";
 
 function Home() {
-  const [mode, setMode] = useState("pint");
   const [is_item_clicked, setIsClick] = useState(false);
   const [item_clicked, setClicked] = useState([]);
-
-  const changeMode = changeMode => setMode(changeMode);
-
-  // 메뉴 클릭 시 화면 바뀜.
-  const changeMenu = event => {
-    const selectedMenu = event.target.dataset.menu;
-    if (selectedMenu !== "none") changeMode(selectedMenu);
-  };
 
   // 아이스크림 리스트(메뉴아래 항목들)을 클릭 했을 때, 팝업창이 뜸.
   const clickItem = (data, event) => {
@@ -36,47 +26,30 @@ function Home() {
     setClicked([]);
   };
 
-
-  // 메뉴를 클릭 했을 때, 메뉴에 해당하는 아이스크림 리스트가 화면에 표시됨.
-  const changeItem = () => {
-    const data = icecreamData;
-
-    if (mode === "pint")
-      return (
-        <Items data={data.pint} onClickItem={e => clickItem(data.pint, e)} />
-      );
-    else if (mode === "mini")
-      return (
-        <Items data={data.mini} onClickItem={e => clickItem(data.mini, e)} />
-      );
-    else if (mode === "bar")
-      return (
-        <Items data={data.bar} onClickItem={e => clickItem(data.bar, e)} />
-      );
-    else if (mode === "con")
-      return (
-        <Items data={data.con} onClickItem={e => clickItem(data.con, e)} />
-      );
-  };
-
   return (
     <>
-      <Header onHome={() => changeMode("pint")} />
-      <Nav onChangePage={e => changeMenu(e)} />
-      <main>
-        {changeItem()}
-        {is_item_clicked ? (
-          <ClickItem
-            item={item_clicked}
-            onClose={() => closeItemPopup()}
-            onChangePage={() => changeMode("order")}
-          />
-        ) : null}
-        <ShoppingCart
-          onChangePage={() => changeMode("order")}
+      <Nav />
+      <Switch>
+        <Route exact path="/">
+          <Items data={data.pint} onClickItem={e => clickItem(data.pint, e)} />
+        </Route>
+        <Route path='/mini'>
+          <Items data={data.mini} onClickItem={e => clickItem(data.mini, e)} />
+        </Route>
+        <Route path='/bar'>
+          <Items data={data.bar} onClickItem={e => clickItem(data.bar, e)} />
+        </Route>
+        <Route path='/con'>
+          <Items data={data.con} onClickItem={e => clickItem(data.con, e)} />
+        </Route>
+      </Switch>
+      {is_item_clicked ? (
+        <ClickItem
+          item={item_clicked}
+          onClose={() => closeItemPopup()}
         />
-      </main>
-      <Footer />
+      ) : null}
+      <ShoppingCart />
     </>
   );
 }

@@ -18,10 +18,8 @@ function ShoppingCart(props) {
           <li></li>
         )}
       </ul>
-      <Link to="/order">
-        <button className="shopping_cart__order" onClick={props.onChangePage}>
-          주문하기
-        </button>
+      <Link to="/order" className="shopping_cart__order" onClick={props.onChangePage}>
+        주문하기
       </Link>
     </aside>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "../css/Nav.css";
 
 function Nav(props) {
@@ -9,28 +10,27 @@ function Nav(props) {
         data-menu="none"
         onClick={e => {
           e.preventDefault();
-          props.onChangePage(e);
         }}
       >
         <li>
-          <a href="/" data-menu="pint">
+          <NavLink exact to="/" data-menu="pint">
             파인트
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="/" data-menu="mini">
+          <NavLink to="/mini" data-menu="mini">
             미니컵
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="/" data-menu="bar">
+          <NavLink to="/bar" data-menu="bar">
             스틱바
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="/" data-menu="con">
+          <NavLink to="/con" data-menu="con">
             콘
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>

@@ -16,3 +16,7 @@
   color: var(--color-light_main);
   padding: 10px 13px;
 }
+
+.active {
+  font-weight: bold;
+}
