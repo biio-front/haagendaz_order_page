@@ -26,17 +26,18 @@ function Order({ items, deleteItem_cart }) {
       <article className="order_list">
         <ul className="order_list__items">
           {items.length > 0 ? (
-            items.map(item => (
+            items.map((item, index) => (
               <OrderItem
                 key={item.id}
-                {...item}
+                item={item}
+                index={index}
                 onCheck={id => checkForDelete(id)}
                 unCheck={id => uncheck(id)}
               />
             ))
           ) : (
-            <li className="order_list__none">선택된 상품이 없습니다.</li>
-          )}
+              <li className="order_list__none">선택된 상품이 없습니다.</li>
+            )}
         </ul>
         {items.length > 0 ? (
           <button

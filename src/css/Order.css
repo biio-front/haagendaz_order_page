@@ -79,9 +79,24 @@
 }
 
 .order_list__count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.order_list__count button {
+  width: 20px;
+  height: 20px;
+  font-size: var(--font-small);
+  font-weight: lighter;
+  background-color: var(--color-light_gray);
+}
+
+.order_list__number {
+  padding: 0 7px;
   font-size: var(--font-small);
   color: var(--color-gray);
-  align-self: center;
 }
 
 .order_list__price {

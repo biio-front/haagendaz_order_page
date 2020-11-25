@@ -8,12 +8,15 @@ const item_inCart = createSlice({
       state.push({ ...action.payload });
     },
     remove: (state, action) =>
-      state.filter(item => action.payload.indexOf(item.id) === -1)
+      state.filter(item => action.payload.indexOf(item.id) === -1),
+    modify: (state, action) => {
+      state[action.payload.index] = action.payload.item;
+    }
   },
 });
 
 const store = configureStore({ reducer: item_inCart.reducer });
 
-export const { add, remove } = item_inCart.actions;
+export const { add, remove, modify } = item_inCart.actions;
 
 export default store;
