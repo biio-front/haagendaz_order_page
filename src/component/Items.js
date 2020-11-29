@@ -3,7 +3,7 @@ import Item from "./Item";
 import "../css/Items.css";
 
 function Items(props) {
-  const items = props.data;
+  const items = Object.values(props.data);
 
   return (
     <section>

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import data from "../data/data.json";
 import Nav from "../component/Nav";
 import Items from "../component/Items";
 import ClickItem from "../component/ClickItem";
 import ShoppingCart from "../component/ShoppingCart";
 import { HashRouter as Route, Switch } from "react-router-dom";
 
-function Home() {
+function Home({ data }) {
   const [is_item_clicked, setIsClick] = useState(false);
   const [item_clicked, setClicked] = useState([]);
 
