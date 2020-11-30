@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { modify } from "../store";
+import { modify } from "store";
 
 function OrderItem(props) {
   const checkedItem = (e, id) => e.target.checked ? props.onCheck(id) : props.unCheck(id);

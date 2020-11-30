@@ -12,11 +12,11 @@ function Item({ id, name, sort, price, picture }) {
 }
 
 Item.prototype = {
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    sort: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    picture: PropTypes.string.isRequired
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  sort: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  picture: PropTypes.string.isRequired
 };
 
 export default Item;

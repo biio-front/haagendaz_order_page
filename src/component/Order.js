@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "../css/Order.css";
-import OrderItem from "./OrderItem";
+import "css/Order.css";
+import OrderItem from "component/OrderItem";
 import { connect } from "react-redux";
-import { remove } from "../store";
+import { remove } from "store";
 
 function Order({ items, deleteItem_cart }) {
   const [checked_id, setCheId] = useState([]);

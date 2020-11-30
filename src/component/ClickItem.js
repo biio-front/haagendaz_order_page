@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { add } from "../store";
-import "../css/ClickItem.css";
+import { add } from "store";
+import "css/ClickItem.css";
 import { Link } from "react-router-dom";
 
 function ClickItem(props) {

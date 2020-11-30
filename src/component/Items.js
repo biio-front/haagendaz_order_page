@@ -1,10 +1,8 @@
 import React from "react";
-import Item from "./Item";
-import "../css/Items.css";
+import Item from "component/Item";
+import "css/Items.css";
 
-function Items(props) {
-  const items = Object.values(props.data);
-
+function Items({ data, onClickItem }) {
   return (
     <section>
       <ul
@@ -12,10 +10,10 @@ function Items(props) {
         data-id="none"
         onClick={e => {
           e.preventDefault();
-          props.onClickItem(e);
+          onClickItem(e);
         }}
       >
-        {items.map(item => {
+        {data.map(item => {
           return (
             <Item
               key={item.id}

@@ -1,10 +1,9 @@
 import React from "react";
-import "../css/ShoppingCart.css";
+import "css/ShoppingCart.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-function ShoppingCart(props) {
-  const { items } = props;
+function ShoppingCart({ items, onChangePage }) {
   return (
     <aside className="shopping_cart">
       <ul className="shopping_cart__items">
@@ -15,10 +14,10 @@ function ShoppingCart(props) {
             </li>
           ))
         ) : (
-          <li></li>
-        )}
+            <li></li>
+          )}
       </ul>
-      <Link to="/order" className="shopping_cart__order" onClick={props.onChangePage}>
+      <Link to="/order" className="shopping_cart__order" onClick={onChangePage}>
         주문하기
       </Link>
     </aside>
