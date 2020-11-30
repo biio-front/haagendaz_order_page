@@ -5,19 +5,19 @@ import { connect } from "react-redux";
 import { remove } from "store";
 
 function Order({ items, deleteItem_cart }) {
-  const [checked_id, setCheId] = useState([]);
+  const [checked_id, setChecked_Id] = useState([]);
 
   // 체크한 아이템 state에 넣기
   const checkForDelete = _id => {
     const _checked_id = [...checked_id];
     _checked_id.push(_id);
-    setCheId(_checked_id);
+    setChecked_Id(_checked_id);
   };
 
   // 체크한 아이템 state에서 빼기
   const uncheck = _id => {
     const _checked_id = checked_id.filter(id => id !== _id);
-    setCheId(_checked_id);
+    setChecked_Id(_checked_id);
   };
 
   return (

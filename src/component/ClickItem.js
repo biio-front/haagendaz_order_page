@@ -4,17 +4,16 @@ import { add } from "store";
 import "css/ClickItem.css";
 import { Link } from "react-router-dom";
 
-function ClickItem(props) {
-  const { item, addItem_Cart } = props;
+function ClickItem({ item, addItem_Cart, onClose }) {
   const { name, sort, amount, price, picture } = item;
-  const [i, setNumber] = useState(1);
+  const [i, setNumber] = useState(item.i || 1);
   const increase = () => setNumber(i + 1);
   const decrease = () => i > 1 ? setNumber(i - 1) : null;
 
   return (
     <aside className="click_item_container">
       <div className="click_item">
-        <button className="click_item__close" onClick={props.onClose}>
+        <button className="click_item__close" onClick={onClose}>
           X
         </button>
         <div className="click_item__metadata">
@@ -54,7 +53,7 @@ function ClickItem(props) {
           <button
             onClick={() => {
               addItem_Cart({ ...item, i });
-              props.onClose();
+              onClose();
             }}
           >
             장바구니
@@ -62,7 +61,7 @@ function ClickItem(props) {
           <Link to="/order"
             onClick={() => {
               addItem_Cart({ ...item, i });
-              props.onClose();
+              onClose();
             }}
           >
             주문하기

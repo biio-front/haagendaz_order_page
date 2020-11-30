@@ -5,7 +5,13 @@ const item_inCart = createSlice({
   initialState: [],
   reducers: {
     add: (state, action) => {
-      state.push({ ...action.payload });
+      const checkingSameItem = state.find(item => item.id === action.payload.id);
+      if (checkingSameItem) {
+        const indexOfSameItem = state.indexOf(checkingSameItem);
+        state[indexOfSameItem] = action.payload;
+      } else {
+        state.push({ ...action.payload });
+      }
     },
     remove: (state, action) =>
       state.filter(item => action.payload.indexOf(item.id) === -1),
