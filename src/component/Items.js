@@ -4,7 +4,7 @@ import "css/Items.css";
 
 function Items({ data, onClickItem }) {
   return (
-    <section>
+    <article>
       <ul
         className="items"
         onClick={e => {
@@ -20,7 +20,7 @@ function Items({ data, onClickItem }) {
           );
         })}
       </ul>
-    </section>
+    </article>
   );
 }
 

@@ -9,7 +9,7 @@ function Home({ data, items }) {
   const [isItemClicked, setIsItemClicked] = useState(false);
   const [itemClicked, setItemClicked] = useState([]);
 
-  // 아이스크림 리스트(메뉴아래 항목들)을 클릭 했을 때, 팝업창이 뜸.
+  // 아이스크림을 클릭 했을 때, 팝업창이 뜸.
   const clickItem = (data, e) => {
     const selectedItem = Number(e.target.dataset.id);
     if (selectedItem) {

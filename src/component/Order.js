@@ -21,10 +21,10 @@ function Order({ items, deleteItem_cart }) {
   };
 
   return (
-    <section className="order_container">
-      <h3 className="order_title">주문하기</h3>
-      <article className="order_list">
-        <ul className="order_list__items">
+    <article className="order-container">
+      <h3 className="order-title">주문하기</h3>
+      <article className="order-list">
+        <ul className="order-list__items">
           {items.length > 0 ? (
             items.map((item, index) => (
               <OrderItem
@@ -36,21 +36,21 @@ function Order({ items, deleteItem_cart }) {
               />
             ))
           ) : (
-              <li className="order_list__none">선택된 상품이 없습니다.</li>
+              <li className="order-list__none">선택된 상품이 없습니다.</li>
             )}
         </ul>
         {items.length > 0 ? (
           <button
-            className="order_list__delete"
+            className="order-list__delete"
             onClick={() => deleteItem_cart(checked_id)}
           >
             선택한 상품 삭제하기
           </button>
         ) : null}
       </article>
-      <div className="total_order">
-        <p className="total_order__total">총 주문금액</p>
-        <p className="total_order__price">
+      <div className="total-order">
+        <p className="total-order__total">총 주문금액</p>
+        <p className="total-order__price">
           {items
             .reduce((prev, curr) => prev + curr.price * curr.i, 0)
             .toLocaleString()}
@@ -60,7 +60,7 @@ function Order({ items, deleteItem_cart }) {
       <a href="/pay" className="order" onClick={e => e.preventDefault()}>
         주문하기
       </a>
-    </section>
+    </article>
   );
 }
 

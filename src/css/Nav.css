@@ -20,3 +20,10 @@
 .active {
   font-weight: bold;
 }
+
+@media screen and (min-width: 769px) {
+  .menu{
+    max-width: 606px;
+    margin: 0 auto;
+  }
+}

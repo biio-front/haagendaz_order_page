@@ -3,9 +3,7 @@
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  margin: var(--margin-side);
-  margin-top: 20px;
-  margin-bottom: 130px;
+  margin: 20px var(--margin-side) 130px;
 }
 
 .item {
@@ -32,4 +30,21 @@
 
 .item__price {
   font-size: var(--font-small);
+}
+
+@media screen and (min-width: 769px) {
+  .items{
+    max-width: 606px;
+    margin: 20px auto 130px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .items{
+    max-width: 800px;
+    margin: 20px auto 130px;
+  }
+  .item{
+    width: calc(100% / 4 - 10px);
+  }
 }

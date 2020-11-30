@@ -2,9 +2,10 @@ import React from "react";
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from 'routes/Home';
 import OrderPage from 'routes/OrderPage';
-import "css/App.css";
 import Header from "component/Header";
 import Footer from "component/Footer";
+import "css/App.css";
+import "css/loader.css";
 
 function RouterApp({ isLoaded, data }) {
   return (
@@ -15,7 +16,11 @@ function RouterApp({ isLoaded, data }) {
           <Route path="/order" component={OrderPage}></Route>
           <Route path="/"><Home data={data} /></Route>
         </Switch>
-        : <Route path="/"><span>Loading...</span></Route>
+        : <Route path="/">
+          <article className="loader-container">
+            <div className="loader"></div>
+          </article>
+        </Route>
       }
       <Footer />
     </Router>

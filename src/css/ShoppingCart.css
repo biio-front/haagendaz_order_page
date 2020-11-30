@@ -8,7 +8,7 @@
   position: fixed;
   bottom: 60px;
   background-color: #fff;
-  padding: 5px 0;
+  padding: 5px 0 5px var(--padding-side);
 }
 
 .shopping_cart__items {
@@ -32,6 +32,7 @@
   padding: 3px 0;
   margin-right: 10px;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .shoppingcart__count {
@@ -42,7 +43,7 @@
   left: 50%;
   border-radius: 100%;
   font-size: var(--font-micro);
-  background-color: var(--color-light_main-opacity);
+  background-color: var(--color-light_main-opacity8);
   color: white;
 }
 
@@ -53,4 +54,11 @@
   color: var(--color-light_main);
   text-align: end;
   padding: 15px var(--padding-side);
+}
+
+@media screen and (min-width: 769px) {
+  .shopping_cart{
+    max-width: 800px;
+    left: auto;
+  }
 }
