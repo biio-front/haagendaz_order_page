@@ -6,8 +6,8 @@ import ShoppingCart from "component/ShoppingCart";
 import { connect } from "react-redux";
 
 function Home({ data, items }) {
-  const [is_item_clicked, setIsClick] = useState(false);
-  const [item_clicked, setClicked] = useState([]);
+  const [isItemClicked, setIsItemClicked] = useState(false);
+  const [itemClicked, setItemClicked] = useState([]);
 
   // 아이스크림 리스트(메뉴아래 항목들)을 클릭 했을 때, 팝업창이 뜸.
   const clickItem = (data, e) => {
@@ -15,33 +15,33 @@ function Home({ data, items }) {
     if (selectedItem) {
       const checkingSameItem = items.find(item => item.id === selectedItem);
       if (checkingSameItem) {
-        setIsClick(true);
-        setClicked(checkingSameItem);
+        setIsItemClicked(true);
+        setItemClicked(checkingSameItem);
       } else {
         const target = data.find(item => item.id === selectedItem);
-        setIsClick(true);
-        setClicked(target);
+        setIsItemClicked(true);
+        setItemClicked(target);
       }
     };
   }
 
   // 팝업 창의 x표를 누를 시, 팝업창이 사라짐.
   const closeItemPopup = () => {
-    setIsClick(false);
-    setClicked([]);
+    setIsItemClicked(false);
+    setItemClicked([]);
   };
 
   return (
     <>
       <Nav />
       <IcecreamList data={data} onClickItem={(data, e) => clickItem(data, e)} />
-      {is_item_clicked ? (
+      {isItemClicked ? (
         <ClickItem
-          item={item_clicked}
+          item={itemClicked}
           onClose={() => closeItemPopup()}
         />
       ) : null}
-      <ShoppingCart />
+      <ShoppingCart onClickItem={(data, e) => clickItem(data, e)} />
     </>
   );
 }

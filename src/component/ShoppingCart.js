@@ -3,14 +3,19 @@ import "css/ShoppingCart.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-function ShoppingCart({ items, onChangePage }) {
+function ShoppingCart({ onClickItem, items, onChangePage }) {
   return (
     <aside className="shopping_cart">
-      <ul className="shopping_cart__items">
+      <ul className="shopping_cart__items"
+        onClick={e => {
+          onClickItem(items, e);
+        }}
+      >
         {items.length > 0 ? (
           items.map(item => (
             <li className="shopping_cart__item" key={item.picture}>
-              <img src={item.picture} alt={item.sort} />
+              <img src={item.picture} alt={item.sort} className="shopping_cart__img" data-id={item.id} />
+              <div className="shoppingcart__count">{item.i}</div>
             </li>
           ))
         ) : (

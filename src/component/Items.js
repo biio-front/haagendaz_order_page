@@ -7,9 +7,7 @@ function Items({ data, onClickItem }) {
     <section>
       <ul
         className="items"
-        data-id="none"
         onClick={e => {
-          e.preventDefault();
           onClickItem(e);
         }}
       >
