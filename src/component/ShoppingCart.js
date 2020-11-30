@@ -5,16 +5,16 @@ import { connect } from "react-redux";
 
 function ShoppingCart({ onClickItem, items, onChangePage }) {
   return (
-    <aside className="shopping_cart">
-      <ul className="shopping_cart__items"
+    <aside className="shoppingcart">
+      <ul className="shoppingcart__items"
         onClick={e => {
           onClickItem(items, e);
         }}
       >
         {items.length > 0 ? (
           items.map(item => (
-            <li className="shopping_cart__item" key={item.picture}>
-              <img src={item.picture} alt={item.sort} className="shopping_cart__img" data-id={item.id} />
+            <li className="shoppingcart__item" key={item.picture}>
+              <img src={item.picture} alt={item.sort} className="shoppingcart__img" data-id={item.id} />
               <div className="shoppingcart__count">{item.i}</div>
             </li>
           ))
@@ -22,7 +22,7 @@ function ShoppingCart({ onClickItem, items, onChangePage }) {
             <li></li>
           )}
       </ul>
-      <Link to="/order" className="shopping_cart__order" onClick={onChangePage}>
+      <Link to="/order" className="shoppingcart__order" onClick={onChangePage}>
         주문하기
       </Link>
     </aside>

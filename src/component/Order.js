@@ -23,7 +23,7 @@ function Order({ items, deleteItem_cart }) {
   return (
     <article className="order-container">
       <h3 className="order-title">주문하기</h3>
-      <article className="order-list">
+      <div className="order-list">
         <ul className="order-list__items">
           {items.length > 0 ? (
             items.map((item, index) => (
@@ -47,7 +47,7 @@ function Order({ items, deleteItem_cart }) {
             선택한 상품 삭제하기
           </button>
         ) : null}
-      </article>
+      </div>
       <div className="total-order">
         <p className="total-order__total">총 주문금액</p>
         <p className="total-order__price">

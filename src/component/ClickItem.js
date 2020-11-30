@@ -11,28 +11,28 @@ function ClickItem({ item, addItem_Cart, onClose }) {
   const decrease = () => i > 1 ? setNumber(i - 1) : null;
 
   return (
-    <aside className="click_item_container">
-      <div className="click_item">
-        <button className="click_item__close" onClick={onClose}>
+    <aside className="click-item_container">
+      <div className="click-item">
+        <button className="click-item__close" onClick={onClose}>
           X
         </button>
-        <div className="click_item__metadata">
-          <img src={picture} alt={sort} className="click_item__picture" />
-          <div className="click_item__description">
-            <p className="click_item__name">{name}</p>
-            <p className="click_item__sort">{sort}</p>
-            <p className="click_item__amount">{amount}</p>
-            <p className="click_item__price">{price.toLocaleString()}원</p>
-            <div className="click_item__count">
+        <div className="click-item__metadata">
+          <img src={picture} alt={sort} className="click-item__picture" />
+          <div className="click-item__description">
+            <p className="click-item__name">{name}</p>
+            <p className="click-item__sort">{sort}</p>
+            <p className="click-item__amount">{amount}</p>
+            <p className="click-item__price">{price.toLocaleString()}원</p>
+            <div className="click-item__count">
               <button
-                className="click_item__minus"
+                className="click-item__minus"
                 onClick={decrease}
               >
                 -
               </button>
-              <p className="click_item__number">{i}</p>
+              <p className="click-item__number">{i}</p>
               <button
-                className="click_item__plus"
+                className="click-item__plus"
                 onClick={increase}
               >
                 +
@@ -40,16 +40,16 @@ function ClickItem({ item, addItem_Cart, onClose }) {
             </div>
           </div>
         </div>
-        <div className="total_price">
-          <p className="total_price__string">총 상품금액</p>
-          <div className="total_price__count_price">
-            <p className="total_price__count">총 수량 {i}개</p>
-            <p className="total_price__price">
+        <div className="total-price">
+          <p className="total-price__string">총 상품금액</p>
+          <div className="total-price__count_price">
+            <p className="total-price__count">총 수량 {i}개</p>
+            <p className="total-price__price">
               {(i * price).toLocaleString()}원
             </p>
           </div>
         </div>
-        <div className="click_item__btn">
+        <div className="click-item__btn">
           <button
             onClick={() => {
               addItem_Cart({ ...item, i });

@@ -1,4 +1,4 @@
-.click_item {
+.click-item {
   width: 330px;
   position: absolute;
   top: 30%;
@@ -10,7 +10,7 @@
   border: 1px solid var(--color-gray);
 }
 
-.click_item__close {
+.click-item__close {
   font-size: var(--font-small);
   position: absolute;
   top: 15px;
@@ -18,43 +18,43 @@
   padding: 0 5px;
 }
 
-.click_item__metadata {
+.click-item__metadata {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.click_item__picture {
+.click-item__picture {
   width: 100px;
   margin-bottom: 25px;
 }
 
-.click_item__description p {
+.click-item__description p {
   text-align: end;
 }
 
-.click_item__name {
+.click-item__name {
   font-size: var(--font-medium);
 }
 
-.click_item__sort,
-.click_item__amount {
+.click-item__sort,
+.click-item__amount {
   font-size: var(--font-small);
 }
 
-.click_item__price {
+.click-item__price {
   font-size: var(--font-micro);
   margin-top: 13px;
 }
 
-.click_item__count {
+.click-item__count {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin: 10px 0;
 }
 
-.click_item__count button {
+.click-item__count button {
   width: 25px;
   height: 25px;
   font-size: var(--font-small);
@@ -62,12 +62,12 @@
   background-color: var(--color-light_gray);
 }
 
-.click_item__number {
+.click-item__number {
   padding: 0 7px;
   font-size: var(--font-small);
 }
 
-.total_price {
+.total-price {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -75,30 +75,30 @@
   border-top: 1px solid var(--color-light_gray);
 }
 
-.total_price__string {
+.total-price__string {
   font-size: var(--font-micro);
 }
 
-.total_price__count_price {
+.total-price__count_price {
   display: flex;
   align-items: center;
 }
 
-.total_price__count {
+.total-price__count {
   font-size: var(--font-micro);
   color: var(--color-light_gray);
   margin-right: 10px;
 }
 
-.total_price__price {
+.total-price__price {
   font-size: var(--font-small);
 }
 
-.click_item__btn {
+.click-item__btn {
   text-align: center;
 }
-.click_item__btn button,
-.click_item__btn a {
+.click-item__btn button,
+.click-item__btn a {
   font-size: var(--font-medium);
   padding: 15px;
   color: black;

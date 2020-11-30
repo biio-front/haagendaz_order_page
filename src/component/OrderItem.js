@@ -17,32 +17,32 @@ function OrderItem(props) {
   }
 
   return (
-    <li className="order_list__li">
+    <li className="order-list__li">
       <input
         type="checkbox"
         name="chk_delete"
         id={id}
         onClick={e => checkedItem(e, id)}
       />
-      <div className="order_list__item">
-        <div className="order_list__item_container">
+      <div className="order-list__item">
+        <div className="order-list__item-container">
           <img src={picture} alt={sort} />
-          <div className="order_list__info">
+          <div className="order-list__info">
             <div>
-              <p className="order_list__name">{name}</p>
-              <p className="order_list__sort">{sort}</p>
-              <p className="order_list__item_price">
+              <p className="order-list__name">{name}</p>
+              <p className="order-list__sort">{sort}</p>
+              <p className="order-list__item-price">
                 {price.toLocaleString()}원
               </p>
             </div>
-            <div className="order_list__count">
-              <button className="order_list__minus" onClick={() => increase_decrease(-1, number === 1)}>-</button>
-              <p className="order_list__number">{number}</p>
-              <button className="order_list__plus" onClick={() => increase_decrease(+1)}>+</button>
+            <div className="order-list__count">
+              <button className="order-list__minus" onClick={() => increase_decrease(-1, number === 1)}>-</button>
+              <p className="order-list__number">{number}</p>
+              <button className="order-list__plus" onClick={() => increase_decrease(+1)}>+</button>
             </div>
           </div>
         </div>
-        <p className="order_list__price">{(price * number).toLocaleString()}원</p>
+        <p className="order-list__price">{(price * number).toLocaleString()}원</p>
       </div>
     </li>
   );
