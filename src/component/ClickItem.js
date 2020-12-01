@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import { add } from "store";
 import "css/ClickItem.css";
 import { Link } from "react-router-dom";
+import addStorage from 'localStorage/addStorage';
 
-function ClickItem({ item, addItem_Cart, onClose }) {
+function ClickItem({ item, addItem_Cart, addItem_Ls, onClose }) {
   const { name, sort, amount, price, picture } = item;
   const [i, setNumber] = useState(item.i || 1);
   const increase = () => setNumber(i + 1);
@@ -53,6 +54,7 @@ function ClickItem({ item, addItem_Cart, onClose }) {
           <button
             onClick={() => {
               addItem_Cart({ ...item, i });
+              addItem_Ls({ ...item, i });
               onClose();
             }}
           >
@@ -61,6 +63,7 @@ function ClickItem({ item, addItem_Cart, onClose }) {
           <Link to="/order"
             onClick={() => {
               addItem_Cart({ ...item, i });
+              addItem_Ls({ ...item, i });
               onClose();
             }}
           >
@@ -75,6 +78,7 @@ function ClickItem({ item, addItem_Cart, onClose }) {
 function mapDispatchToProps(dispatch) {
   return {
     addItem_Cart: data => dispatch(add(data)),
+    addItem_Ls: data => addStorage(data)
   };
 }
 

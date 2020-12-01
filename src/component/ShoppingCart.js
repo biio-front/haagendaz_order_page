@@ -13,7 +13,7 @@ function ShoppingCart({ onClickItem, items, onChangePage }) {
       >
         {items.length > 0 ? (
           items.map(item => (
-            <li className="shoppingcart__item" key={item.picture}>
+            <li className="shoppingcart__item" key={item.id}>
               <img src={item.picture} alt={item.sort} className="shoppingcart__img" data-id={item.id} />
               <div className="shoppingcart__count">{item.i}</div>
             </li>

@@ -8,16 +8,17 @@ const item_inCart = createSlice({
       const checkingSameItem = state.find(item => item.id === action.payload.id);
       if (checkingSameItem) {
         const indexOfSameItem = state.indexOf(checkingSameItem);
-        state[indexOfSameItem] = action.payload;
+        const _state = state;
+        _state[indexOfSameItem] = action.payload;
+        return _state;
       } else {
-        state.push({ ...action.payload });
+        const _state = state;
+        _state.push({ ...action.payload });
+        return _state;
       }
     },
     remove: (state, action) =>
-      state.filter(item => action.payload.indexOf(item.id) === -1),
-    modify: (state, action) => {
-      state[action.payload.index] = action.payload.item;
-    }
+      state.filter(item => action.payload.indexOf(item.id) === -1)
   },
 });
 

@@ -1,6 +1,7 @@
+import addStorage from "localStorage/addStorage";
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { modify } from "store";
+import { add } from "store";
 
 function OrderItem(props) {
   const checkedItem = (e, id) => e.target.checked ? props.onCheck(id) : props.unCheck(id);
@@ -13,7 +14,8 @@ function OrderItem(props) {
     setNumber(prev => prev + plus_minus);
     const _item = { ...props.item };
     _item.i = number + plus_minus;
-    props.modifyItem_cart({ index: props.index, item: _item });
+    props.addItem_Cart(_item);
+    props.addItem_Ls(_item);
   }
 
   return (
@@ -49,6 +51,9 @@ function OrderItem(props) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return { modifyItem_cart: data => dispatch(modify(data)) };
+  return {
+    addItem_Cart: data => dispatch(add(data)),
+    addItem_Ls: data => addStorage(data)
+  };
 }
 export default connect(null, mapDispatchToProps)(OrderItem);

@@ -3,8 +3,9 @@ import "css/Order.css";
 import OrderItem from "component/OrderItem";
 import { connect } from "react-redux";
 import { remove } from "store";
+import deleteStorage from "localStorage/deleteStorage";
 
-function Order({ items, deleteItem_cart }) {
+function Order({ items, deleteItem_cart, deleteItem_LS }) {
   const [checked_id, setChecked_Id] = useState([]);
 
   // 체크한 아이템 state에 넣기
@@ -42,7 +43,10 @@ function Order({ items, deleteItem_cart }) {
         {items.length > 0 ? (
           <button
             className="order-list__delete"
-            onClick={() => deleteItem_cart(checked_id)}
+            onClick={() => {
+              deleteItem_cart(checked_id);
+              deleteItem_LS(checked_id);
+            }}
           >
             선택한 상품 삭제하기
           </button>
@@ -68,7 +72,10 @@ function mapStateToProps(state) {
   return { items: state };
 }
 function mapDispatchToProps(dispatch) {
-  return { deleteItem_cart: checked_id => dispatch(remove(checked_id)) };
+  return {
+    deleteItem_cart: checked_id => dispatch(remove(checked_id)),
+    deleteItem_LS: checked_id => deleteStorage(checked_id)
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Order);
