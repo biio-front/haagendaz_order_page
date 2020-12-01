@@ -112,7 +112,7 @@
 }
 
 /* check box to delete */
-.order-list__delete {
+.order-list__delete-btn {
   margin-left: 15px;
   padding: 7px 0;
   color: var(--color-gray);
