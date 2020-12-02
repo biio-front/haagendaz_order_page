@@ -3,20 +3,20 @@ import RouterApp from 'component/Router'
 import { database } from 'firebaseApp';
 import { add } from 'store';
 import { connect } from 'react-redux';
+import { parsedLS } from 'localStorage/initStorage';
 
 function App({ addItem_Cart }) {
   const [data, setData] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
+  // DB에서 data를 가져와 상품 리스트 구성
   const getData = (async () => {
     const response = await database.ref('data').get();
     const result = await response.toJSON();
     setData(result);
     setIsLoaded(true);
   });
+  // local storage에 상품이 있다면 상품정보를 가져옴.
   const getStorage = () => {
-    const DATA_LS = 'icecream';
-    const loadedLS = localStorage.getItem(DATA_LS);
-    const parsedLS = JSON.parse(loadedLS);
     if (parsedLS) {
       parsedLS.map(item => addItem_Cart(item));
     }

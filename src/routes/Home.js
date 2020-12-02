@@ -15,22 +15,22 @@ function Home({ data, items }) {
     if (selectedItem) {
       const checkingSameItem = items.find(item => item.id === selectedItem);
       if (checkingSameItem) {
+        // 이미 선택된 상품을 클릭 시, 선택했던 상품 정보가 팝업창으로 뜸.
         setIsItemClicked(true);
         setItemClicked(checkingSameItem);
       } else {
+        // 새로운 상품 클릭 시, 그 상품정보의 팝업창 뜸.
         const target = data.find(item => item.id === selectedItem);
         setIsItemClicked(true);
         setItemClicked(target);
       }
     };
   }
-
   // 팝업 창의 x표를 누를 시, 팝업창이 사라짐.
   const closeItemPopup = () => {
     setIsItemClicked(false);
     setItemClicked([]);
   };
-
   return (
     <>
       <Nav />

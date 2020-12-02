@@ -2,12 +2,14 @@ import addStorage from "localStorage/addStorage";
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { add } from "store";
+import PropTypes from "prop-types";
 
 function OrderItem(props) {
-  const checkedItem = (e, id) => e.target.checked ? props.onCheck(id) : props.unCheck(id);
   const { id, name, sort, price, picture, i } = props.item;
   const [number, setNumber] = useState(i);
-
+  // 체크 토글 버튼. 체크: state에 추가, 체크취소: state에서 제외.
+  const toggleChecked = (e, id) =>
+    e.target.checked ? props.onCheck(id) : props.unCheck(id);
   // +,- 버튼 클릭 시 상품 수량이 증가 또는 감소
   const increase_decrease = (plus_minus, condition) => {
     if (condition) return;
@@ -17,14 +19,13 @@ function OrderItem(props) {
     props.addItem_Cart(_item);
     props.addItem_Ls(_item);
   }
-
   return (
     <li className="order-list__li">
       <input
         type="checkbox"
         name="chk_delete"
         id={id}
-        onClick={e => checkedItem(e, id)}
+        onClick={e => toggleChecked(e, id)}
       />
       <div className="order-list__item">
         <div className="order-list__item-container">
@@ -38,17 +39,37 @@ function OrderItem(props) {
               </p>
             </div>
             <div className="order-list__count">
-              <button className="order-list__minus" onClick={() => increase_decrease(-1, number === 1)}>-</button>
+              <button
+                className="order-list__minus"
+                onClick={() => increase_decrease(-1, number === 1)}
+              >
+                -
+              </button>
               <p className="order-list__number">{number}</p>
-              <button className="order-list__plus" onClick={() => increase_decrease(+1)}>+</button>
+              <button
+                className="order-list__plus"
+                onClick={() => increase_decrease(+1)}
+              >
+                +
+              </button>
             </div>
           </div>
         </div>
-        <p className="order-list__price">{(price * number).toLocaleString()}원</p>
+        <p className="order-list__price">
+          {(price * number).toLocaleString()}원
+        </p>
       </div>
     </li>
   );
 }
+OrderItem.prototype = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  sort: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  picture: PropTypes.string.isRequired,
+  i: PropTypes.number.isRequired
+};
 
 function mapDispatchToProps(dispatch) {
   return {

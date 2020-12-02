@@ -1,12 +1,8 @@
-import saveList from 'localStorage/savsList';
+import { DATA_LS, parsedLS } from './initStorage';
 
-const deleteStorage = (data) => {
-  const DATA_LS = 'icecream';
-  const loadedLS = localStorage.getItem(DATA_LS);
-  const parsedLS = JSON.parse(loadedLS);
+// local storage에서 선택된 data 제거
+export default function deleteStorage(data) {
   let data_ls = [];
   data_ls = parsedLS.filter(item => data.indexOf(item.id) === -1);
-  saveList(DATA_LS, data_ls);
+  localStorage.setItem(DATA_LS, JSON.stringify(data_ls));
 }
-
-export default deleteStorage;

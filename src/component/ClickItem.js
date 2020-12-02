@@ -9,7 +9,7 @@ function ClickItem({ item, addItem_Cart, addItem_Ls, onClose }) {
   const { name, sort, amount, price, picture } = item;
   const [i, setNumber] = useState(item.i || 1);
   const increase = () => setNumber(i + 1);
-  const decrease = () => i > 1 ? setNumber(i - 1) : null;
+  const decrease = () => i > 1 && setNumber(i - 1);
 
   return (
     <aside className="click-item_container">

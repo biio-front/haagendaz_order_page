@@ -7,7 +7,6 @@ import deleteStorage from "localStorage/deleteStorage";
 
 function Order({ items, deleteItem_cart, deleteItem_LS }) {
   const [checked_id, setChecked_Id] = useState([]);
-
   // 체크한 아이템 state에 넣기
   const check = _id => {
     const _checked_id = [...checked_id];
@@ -19,7 +18,6 @@ function Order({ items, deleteItem_cart, deleteItem_LS }) {
     const _checked_id = checked_id.filter(id => id !== _id);
     setChecked_Id(_checked_id);
   };
-
   // 모든 아이템 체크하기
   const checkAll = () => {
     const checkbox = document.querySelectorAll('[name=chk_delete]');
@@ -38,7 +36,6 @@ function Order({ items, deleteItem_cart, deleteItem_LS }) {
   const toggleCheckAll = e => {
     e.target.checked ? checkAll() : unCheckAll();
   }
-
   return (
     <article className="order-container">
       <h3 className="order-title">주문하기</h3>
