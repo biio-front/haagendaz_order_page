@@ -58,7 +58,7 @@ function Order({ items, deleteItem_cart, deleteItem_LS }) {
               <li className="order-list__none">선택된 상품이 없습니다.</li>
             )}
         </ul>
-        {items.length > 0 ? (
+        {items.length > 0 && (
           <div className="order-list__delete">
             <input
               type="checkbox"
@@ -74,7 +74,7 @@ function Order({ items, deleteItem_cart, deleteItem_LS }) {
               선택한 상품 삭제하기
             </button>
           </div>
-        ) : null}
+        )}
       </div>
       <div className="total-order">
         <p className="total-order__total">총 주문금액</p>

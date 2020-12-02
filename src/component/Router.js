@@ -1,7 +1,7 @@
 import React from "react";
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import Home from 'routes/Home';
-import OrderPage from 'routes/OrderPage';
+import Order from "routes/Order";
 import Header from "component/Header";
 import Footer from "component/Footer";
 import "css/App.css";
@@ -12,10 +12,13 @@ function RouterApp({ isLoaded, data }) {
     <Router>
       <Header />
       {isLoaded ?
-        <Switch>
-          <Route path="/order" component={OrderPage}></Route>
-          <Route path="/"><Home data={data} /></Route>
-        </Switch>
+        <>
+          <Switch>
+            <Route path="/order" component={Order}></Route>
+            <Route path="/"><Home data={data} /></Route>
+          </Switch>
+          <Redirect from="*" to="/" />
+        </>
         : <Route path="/">
           <article className="loader-container">
             <div className="loader"></div>
