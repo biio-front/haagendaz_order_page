@@ -5,7 +5,7 @@ import ClickItem from "component/ClickItem";
 import ShoppingCart from "component/ShoppingCart";
 import { connect } from "react-redux";
 
-function Home({ data, items }) {
+function Home({ data, items, userId }) {
   const [isItemClicked, setIsItemClicked] = useState(false);
   const [itemClicked, setItemClicked] = useState([]);
 
@@ -37,6 +37,7 @@ function Home({ data, items }) {
       <IcecreamList data={data} onClickItem={(data, e) => clickItem(data, e)} />
       {isItemClicked ? (
         <ClickItem
+          userId={userId}
           item={itemClicked}
           onClose={() => closeItemPopup()}
         />

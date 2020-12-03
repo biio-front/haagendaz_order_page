@@ -1,23 +1,22 @@
-import addStorage from "localStorage/addStorage";
+import addStorage from "Storage/addStorage";
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { add } from "store";
 import PropTypes from "prop-types";
 
-function OrderItem(props) {
-  const { id, name, sort, price, picture, i } = props.item;
+function OrderItem({ item, onCheck, unCheck, addItem_Cart, addItem_Ls }) {
+  const { id, name, sort, price, picture, i } = item;
   const [number, setNumber] = useState(i);
   // 체크 토글 버튼. 체크: state에 추가, 체크취소: state에서 제외.
   const toggleChecked = (e, id) =>
-    e.target.checked ? props.onCheck(id) : props.unCheck(id);
+    e.target.checked ? onCheck(id) : unCheck(id);
   // +,- 버튼 클릭 시 상품 수량이 증가 또는 감소
-  const increase_decrease = (plus_minus, condition) => {
-    if (condition) return;
+  const increase_decrease = (plus_minus) => {
     setNumber(prev => prev + plus_minus);
-    const _item = { ...props.item };
+    const _item = { ...item };
     _item.i = number + plus_minus;
-    props.addItem_Cart(_item);
-    props.addItem_Ls(_item);
+    addItem_Cart(_item);
+    addItem_Ls(_item);
   }
   return (
     <li className="order-list__li">
@@ -41,7 +40,7 @@ function OrderItem(props) {
             <div className="order-list__count">
               <button
                 className="order-list__minus"
-                onClick={() => increase_decrease(-1, number === 1)}
+                onClick={() => number > 1 && increase_decrease(-1)}
               >
                 -
               </button>
@@ -71,10 +70,11 @@ OrderItem.prototype = {
   i: PropTypes.number.isRequired
 };
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
+  const { userId } = ownProps;
   return {
     addItem_Cart: data => dispatch(add(data)),
-    addItem_Ls: data => addStorage(data)
+    addItem_Ls: data => addStorage(data, userId)
   };
 }
 export default connect(null, mapDispatchToProps)(OrderItem);

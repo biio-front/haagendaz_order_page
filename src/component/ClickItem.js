@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { add } from "store";
 import "css/ClickItem.css";
 import { Link } from "react-router-dom";
-import addStorage from 'localStorage/addStorage';
+import addStorage from 'Storage/addStorage';
 
 function ClickItem({ item, addItem_Cart, addItem_Ls, onClose }) {
   const { name, sort, amount, price, picture } = item;
@@ -75,10 +75,11 @@ function ClickItem({ item, addItem_Cart, addItem_Ls, onClose }) {
   );
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
+  const { userId } = ownProps;
   return {
     addItem_Cart: data => dispatch(add(data)),
-    addItem_Ls: data => addStorage(data)
+    addItem_Ls: data => addStorage(data, userId)
   };
 }
 

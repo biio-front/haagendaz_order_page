@@ -1,0 +1,41 @@
+.auth {
+  height: var(--height-container);
+  margin: 0 var(--margin-side);
+  text-align: center;
+  position: relative;
+}
+
+.auth__title {
+  padding: 80px 0 10px;
+  color: var(--color-gray);
+}
+
+.auth__submit-form {
+  width: 250px;
+  margin: 0 auto;
+}
+
+.auth__email-input,
+.auth__password-input,
+.auth__submit-input {
+  width: 100%;
+  height: 35px;
+  margin-top: 5px;
+  padding-left: 20px;
+  border: 1px solid var(--color-light_gray);
+}
+
+.auth__submit-input{
+  margin-top: 10px;
+  border: none;
+}
+
+.auth__account {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.auth_is-account{
+  font-size: var(--font-micro);
+}

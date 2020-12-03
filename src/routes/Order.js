@@ -3,7 +3,7 @@ import "css/Order.css";
 import OrderItem from "component/OrderItem";
 import { connect } from "react-redux";
 import { remove } from "store";
-import deleteStorage from "localStorage/deleteStorage";
+import deleteStorage from "Storage/deleteStorage";
 
 function Order({ items, deleteItem_cart, deleteItem_LS }) {
   const [checked_id, setChecked_Id] = useState([]);
@@ -92,10 +92,11 @@ function Order({ items, deleteItem_cart, deleteItem_LS }) {
 function mapStateToProps(state) {
   return { items: state };
 }
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
+  const { userId } = ownProps;
   return {
     deleteItem_cart: checked_id => dispatch(remove(checked_id)),
-    deleteItem_LS: checked_id => deleteStorage(checked_id)
+    deleteItem_LS: checked_id => deleteStorage(checked_id, userId)
   };
 }
 

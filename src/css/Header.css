@@ -33,3 +33,16 @@ header {
   position: relative;
   z-index: 50;
 }
+
+.logIn,
+.logOut{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 50;
+  font-size: var(--font-micro);
+  color: #ffffff8f;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
