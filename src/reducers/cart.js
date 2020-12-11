@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -11,7 +11,7 @@ const cartSlice = createSlice({
         const indexOfSameItem = state.indexOf(checkingSameItem);
         state[indexOfSameItem] = action.payload;
       } else {
-        // 성택한 상품과 같은 상품이 없을 경우, data 추가.
+        // 선택한 상품과 같은 상품이 없을 경우, data 추가.
         state.push(action.payload);
       }
     },
@@ -19,8 +19,6 @@ const cartSlice = createSlice({
       state.filter(item => action.payload.indexOf(item.id) === -1)
   },
 });
-const store = configureStore({ reducer: cartSlice.reducer });
 
+export default cartSlice.reducer;
 export const { add, remove } = cartSlice.actions;
-
-export default store;

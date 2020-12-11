@@ -33,7 +33,7 @@ function ShoppingCart({ onClickItem, items, onChangePage }) {
 }
 
 function mapStateToProps(state) {
-  return { items: state };
+  return { items: state.cart };
 }
 
 export default connect(mapStateToProps)(ShoppingCart);

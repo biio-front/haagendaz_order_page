@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { add } from "store";
+import { add } from "reducers/cart";
 import "css/ClickItem.css";
 import { Link } from "react-router-dom";
 import addStorage from 'Storage/addStorage';

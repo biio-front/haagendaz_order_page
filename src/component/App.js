@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import RouterApp from 'component/Router'
 import { auth, database } from 'firebaseApp';
-import { add } from 'store';
+import { add } from 'reducers/cart';
 import { connect } from 'react-redux';
 import { NO_ITEM, parsedLS } from 'Storage/initStorage';
 

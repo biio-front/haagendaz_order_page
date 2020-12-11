@@ -1,15 +1,16 @@
 import addStorage from "Storage/addStorage";
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { add } from "store";
+import { add } from "reducers/cart";
+import { addCheck, removeCheck } from 'reducers/checkOrderItem';
 import PropTypes from "prop-types";
 
-function OrderItem({ item, onCheck, unCheck, addItem_Cart, addItem_Ls }) {
+function OrderItem({ item, addItem_Cart, addItem_Ls, addCheck_Cart, removeCheck_Cart }) {
   const { id, name, sort, price, picture, i } = item;
   const [number, setNumber] = useState(i);
   // 체크 토글 버튼. 체크: state에 추가, 체크취소: state에서 제외.
   const toggleChecked = (e, id) =>
-    e.target.checked ? onCheck(id) : unCheck(id);
+    e.target.checked ? addCheck_Cart(id) : removeCheck_Cart([id]);
   // +,- 버튼 클릭 시 상품 수량이 증가 또는 감소
   const increase_decrease = (plus_minus) => {
     setNumber(prev => prev + plus_minus);
@@ -74,7 +75,9 @@ function mapDispatchToProps(dispatch, ownProps) {
   const { userId } = ownProps;
   return {
     addItem_Cart: data => dispatch(add(data)),
-    addItem_Ls: data => addStorage(data, userId)
+    addItem_Ls: data => addStorage(data, userId),
+    addCheck_Cart: data => dispatch(addCheck(data)),
+    removeCheck_Cart: data => dispatch(removeCheck(data))
   };
 }
 export default connect(null, mapDispatchToProps)(OrderItem);
