@@ -88,26 +88,26 @@ local storage를 사용하여 로그인 하지 않을 경우 브라우저에 장
 Mobile, Tablet, PC등 화면 넓이에 맞게 화면의 구성이 변합니다.
   
 ### 로딩 페이지
-<img src="https://postfiles.pstatic.net/MjAyMDEyMjJfMjMy/MDAxNjA4NjAyNTQ4NzA1.7jGQF4dggqFNjPFjxrMfMHK9yU9bROJRZDZa4Ko0V-Ug.TUgxTuqoadHvnnnX1wvtTXZJ9V-9lts1wW5zagwBQLsg.JPEG.bohwajung/8_loading.JPG?type=w966" width=400>
-<img src="https://postfiles.pstatic.net/MjAyMDEyMjJfMTQw/MDAxNjA4NjAyNTQ4Nzcz.5f0U752NZXAfOW_qXgzW2_HoeLdjWWc1pgvms5htO3og.ThKCNh36O9PehFnQeJCMIpZHKAjM4_leBnC-q3LNF08g.JPEG.bohwajung/9.JPG?type=w966" width=400>  
+<img src="https://postfiles.pstatic.net/MjAyMDEyMjJfMjMy/MDAxNjA4NjAyNTQ4NzA1.7jGQF4dggqFNjPFjxrMfMHK9yU9bROJRZDZa4Ko0V-Ug.TUgxTuqoadHvnnnX1wvtTXZJ9V-9lts1wW5zagwBQLsg.JPEG.bohwajung/8_loading.JPG?type=w966" width=350>
+<img src="https://postfiles.pstatic.net/MjAyMDEyMjJfMTQw/MDAxNjA4NjAyNTQ4Nzcz.5f0U752NZXAfOW_qXgzW2_HoeLdjWWc1pgvms5htO3og.ThKCNh36O9PehFnQeJCMIpZHKAjM4_leBnC-q3LNF08g.JPEG.bohwajung/9.JPG?type=w966" width=350>  
   
 DB에서 정보를 불러오기 전 까지 동그라미 세개가 합쳐졌다가 원래 자리로 돌아가는 것을 반복하는 로딩페이지가 뜹니다.  
 
 
 ### 로그인 페이지  
-<img src="https://postfiles.pstatic.net/MjAyMDEyMjJfNCAg/MDAxNjA4NjAxODQzNDY4.VqTo-ablaI4kma7lxH8uWJZQp-Bpi2Q4yOGqsjpRGQgg.cAaYSGE_C24vblz6yaXVMbQbb4LDAjSKC-x-lUkNiXUg.JPEG.bohwajung/4_login.JPG?type=w966" width=400>
-<img src="https://postfiles.pstatic.net/MjAyMDEyMjJfNzEg/MDAxNjA4NjAxODQzNjE3.PTnnTiCoafsiOq7sS40trm-IQPsA4K_ttVKbN8gv9_Mg.HDdt_Pm-19P69rFcvzkF0Va911o1nflBTLUY8Rtz3gIg.JPEG.bohwajung/5_new_account.JPG?type=w966" width=400>
+<img src="https://postfiles.pstatic.net/MjAyMDEyMjJfNCAg/MDAxNjA4NjAxODQzNDY4.VqTo-ablaI4kma7lxH8uWJZQp-Bpi2Q4yOGqsjpRGQgg.cAaYSGE_C24vblz6yaXVMbQbb4LDAjSKC-x-lUkNiXUg.JPEG.bohwajung/4_login.JPG?type=w966" width=350>
+<img src="https://postfiles.pstatic.net/MjAyMDEyMjJfNzEg/MDAxNjA4NjAxODQzNjE3.PTnnTiCoafsiOq7sS40trm-IQPsA4K_ttVKbN8gv9_Mg.HDdt_Pm-19P69rFcvzkF0Va911o1nflBTLUY8Rtz3gIg.JPEG.bohwajung/5_new_account.JPG?type=w966" width=350>
   
 오른쪽 상단 Login 클릭 시 로그인 페이지로 이동합니다.  
 새 계정만드기 클릭 시, 계정을 만드는 페이지로 이동합니다.  
 로그인 후에는 오른쪽 상단의 글자가 LogOut으로 바뀝니다.  
   
 ### 모달창
-<img src="https://postfiles.pstatic.net/MjAyMDEyMjJfMjc0/MDAxNjA4NjAxODQzOTA1.nfLojcB9LUeF2bOLmKYMdOCHowfrudH6E1BS7G7IxnEg.S_epbQcDQUHefCA_QqksKXxG46FbfEBrp5rmbZhzEUcg.JPEG.bohwajung/6_popup.JPG?type=w966" width=400>  
+<img src="https://postfiles.pstatic.net/MjAyMDEyMjJfMjc0/MDAxNjA4NjAxODQzOTA1.nfLojcB9LUeF2bOLmKYMdOCHowfrudH6E1BS7G7IxnEg.S_epbQcDQUHefCA_QqksKXxG46FbfEBrp5rmbZhzEUcg.JPEG.bohwajung/6_popup.JPG?type=w966" width=350>  
   
   메인화면의 상품이나 하단 장바구니에 들어간 상품 클릭 시, 상품을 장바구니에 담을 수 있는 모달창이 뜹니다. 여기서 새로운 상품을 담거나 상품의 갯수를 변경할 수 있습니다.
   
 ### 상품 주문페이지
-<img src="https://postfiles.pstatic.net/MjAyMDEyMjJfMjAw/MDAxNjA4NjAxODQzMjgz.skjXlFj515P9_4sdzBX91kFIVsnx7I_CxZchBKOs1DYg.PJ9EEcAJfUXR33u44nHNO47ziXZ7252LdA9QC4zf8lcg.JPEG.bohwajung/7_cart.JPG?type=w966" width=400>  
+<img src="https://postfiles.pstatic.net/MjAyMDEyMjJfMjAw/MDAxNjA4NjAxODQzMjgz.skjXlFj515P9_4sdzBX91kFIVsnx7I_CxZchBKOs1DYg.PJ9EEcAJfUXR33u44nHNO47ziXZ7252LdA9QC4zf8lcg.JPEG.bohwajung/7_cart.JPG?type=w966" width=350>  
   
   주문하기 클릭 시 주문 최종 확인 창으로 이동합니다. 여기서 상품의 갯수를 바꾸거나 삭제할 수 있습니다.
