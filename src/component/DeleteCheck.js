@@ -24,7 +24,6 @@ function DeleteCheck({ items, check, deleteItem_cart, deleteItem_LS, addCheck_Ca
     e.target.checked ? checkAll() : unCheckAll();
   }
 
-  console.log(items);
   return (
     <>
       {items.length > 0 && (
