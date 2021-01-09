@@ -2,8 +2,10 @@ import { auth, database } from 'firebaseApp';
 import { NO_ITEM } from 'logic/initStorage';
 import React, { useState } from 'react';
 import 'css/Auth.css';
+import { useHistory } from 'react-router-dom';
 
 function Auth() {
+  const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -27,6 +29,7 @@ function Auth() {
         database.ref(`cart/${newUserId}`).set(NO_ITEM);
       } else {
         await auth.signInWithEmailAndPassword(email, password);
+        history.push('/');
       }
     } catch (error) {
       setError(error.message);

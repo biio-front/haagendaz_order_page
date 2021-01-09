@@ -1,11 +1,12 @@
-import addStorage from "logic/addStorage";
+import addData from "logic/addData";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { add } from "reducers/cart";
 import { addCheck, removeCheck } from 'reducers/checkOrderItem';
 import PropTypes from "prop-types";
 
 function OrderItem({ item }) {
+  const userId = useSelector(state => state.user);
   const dispatch = useDispatch();
 
   const { id, name, sort, price, picture, i } = item;
@@ -19,7 +20,7 @@ function OrderItem({ item }) {
     const _item = { ...item };
     _item.i = number + plus_minus;
     dispatch(add(_item));
-    addStorage(_item);
+    addData(_item, userId);
   }
   return (
     <li className="order-list__li">

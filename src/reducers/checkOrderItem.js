@@ -4,15 +4,15 @@ const checkOrderItemSlice = createSlice({
   name: "checkOrderItem",
   initialState: [],
   reducers: {
-    addCheck: (state, action) => {
-      state.push(action.payload);
+    addCheck: (state, { payload }) => {
+      state.push(payload);
     },
-    removeCheck: (state, action) => {
-      console.log(action.payload);
-      return state.filter(id => id !== action.payload);
+    removeCheck: (state, { payload }) => {
+      console.log(payload);
+      return state.filter(id => id !== payload);
     },
-    removeAllCheck: (state, action) => {
-      state = [action.payload];
+    removeAllCheck: (state, { payload }) => {
+      state = [payload];
     }
   },
 });

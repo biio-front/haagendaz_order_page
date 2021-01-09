@@ -20,7 +20,7 @@ const addLogic = (data, ExistDataInStorage, storage) => {
   }
   return data_storage;
 }
-export default async function addStorage(data, userId) {
+export default async function addData(data, userId) {
   if (userId) {
     const userRef = await database.ref(`cart/${userId}`).get();
     const userData = await userRef.toJSON();
@@ -31,4 +31,6 @@ export default async function addStorage(data, userId) {
     addLogic(data, parsedLS, parsedLS);
     localStorage.setItem(DATA_LS, JSON.stringify(data_storage));
   }
+  console.log(data_storage);
+  return data;
 };

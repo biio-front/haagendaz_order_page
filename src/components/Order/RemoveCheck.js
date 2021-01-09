@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { remove } from "reducers/cart";
 import { addCheck, removeAllCheck } from "reducers/checkOrderItem";
-import deleteStorage from "logic/deleteStorage";
+import removeData from "logic/removeData";
 import { useDispatch, useSelector } from "react-redux";
 
-function DeleteCheck({ userId }) {
+function RemoveCheck({ userId }) {
   const items = useSelector(state => state.cart);
   const check = useSelector(state => state.checkOrderItem);
   const dispatch = useDispatch();
@@ -28,6 +28,11 @@ function DeleteCheck({ userId }) {
     e.target.checked ? checkAll() : unCheckAll();
   }
 
+  const onRemove = useCallback(async () => {
+    const result = await removeData(check, userId);
+    dispatch(remove(result));
+  }, [check, dispatch, userId]);
+
   return (
     <>
       {items.length > 0 && (
@@ -38,10 +43,7 @@ function DeleteCheck({ userId }) {
           />
           <button
             className="order-list__delete-btn"
-            onClick={() => {
-              dispatch(remove(check));
-              deleteStorage(check, userId);
-            }}
+            onClick={onRemove}
           >
             선택한 상품 삭제하기
           </button>
@@ -51,4 +53,4 @@ function DeleteCheck({ userId }) {
   );
 }
 
-export default DeleteCheck;
+export default RemoveCheck;

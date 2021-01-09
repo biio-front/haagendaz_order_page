@@ -6,7 +6,7 @@ const deleteLogic = (data, storage) => {
   data_storage = storage.filter(item => data.indexOf(item.id) === -1);
   return data_storage;
 }
-export default async function deleteStorage(data, userId) {
+export default async function removeData(data, userId) {
   if (userId) {
     const userRef = await database.ref(`cart/${userId}`).get();
     const userData = await userRef.toJSON();
@@ -16,8 +16,11 @@ export default async function deleteStorage(data, userId) {
     data_storage.length === 0 ?
       await database.ref(`cart/${userId}`).set(NO_ITEM)
       : await database.ref(`cart/${userId}`).set(data_storage);
+      console.log(data.storage.length);
   } else {
     deleteLogic(data, parsedLS);
     localStorage.setItem(DATA_LS, JSON.stringify(data_storage));
   }
+  console.log(data);
+  return data;
 }

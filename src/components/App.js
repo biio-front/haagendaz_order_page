@@ -4,6 +4,7 @@ import { auth, database } from 'firebaseApp';
 import { add } from 'reducers/cart';
 import { useDispatch } from 'react-redux';
 import { NO_ITEM, parsedLS } from 'logic/initStorage';
+import { login } from 'reducers/user';
 
 function App() {
   const dispatch = useDispatch();
@@ -38,16 +39,15 @@ function App() {
 
   // 비 로그인 시, local storage에 상품이 있다면 상품정보를 가져옴.
   const getStorage = () => {
-    if (parsedLS) {
-      parsedLS.map(item => dispatch(add(item)));
-    }
+    parsedLS && parsedLS.map(item => dispatch(add(item)));
   };
-  
+
   useEffect(() => {
     getData();
     try {
       auth.onAuthStateChanged(user => {
         if (user) {
+          dispatch(login(user.uid));
           setUserId(user.uid);
           getUserItem(user.uid);
         } else {

@@ -1,7 +1,7 @@
 import React from "react";
 import "css/Order.css";
 import OrderItem from "components/Order/OrderItem";
-import DeleteCheck from "components/Order/DeleteCheck";
+import RemoveCheck from "components/Order/RemoveCheck";
 import { useSelector } from "react-redux";
 
 function Order({ userId }) {
@@ -24,7 +24,7 @@ function Order({ userId }) {
               <li className="order-list__none">선택된 상품이 없습니다.</li>
             )}
         </ul>
-        <DeleteCheck userId={userId} />
+        <RemoveCheck userId={userId} />
       </div>
       <div className="total-order">
         <p className="total-order__total">총 주문금액</p>

@@ -1,17 +1,15 @@
-import React from "react";
+import React, { useCallback } from "react";
 import "css/ShoppingCart.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function ShoppingCart({ onClickItem }) {
   const items = useSelector(state => state.cart);
-
+  const onClick = useCallback(e => onClickItem(items, e), [items, onClickItem]);
   return (
     <aside className="shoppingcart">
       <ul className="shoppingcart__items"
-        onClick={e => {
-          onClickItem(items, e);
-        }}
+        onClick={onClick}
       >
         {items.length > 0 && (
           items.map(item => (
