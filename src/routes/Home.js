@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Nav from "component/Nav";
-import IcecreamList from "component/IcecreamList";
-import ClickItem from "component/ClickItem";
-import ShoppingCart from "component/ShoppingCart";
+import Nav from "components/Nav";
+import IcecreamList from "components/Home/IcecreamList";
+import ClickItem from "components/Home/ClickItem";
+import ShoppingCart from "components/Home/ShoppingCart";
 import { connect } from "react-redux";
 
 function Home({ data, items, userId }) {

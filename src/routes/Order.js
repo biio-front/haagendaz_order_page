@@ -1,10 +1,12 @@
 import React from "react";
 import "css/Order.css";
-import OrderItem from "component/OrderItem";
-import { connect } from "react-redux";
-import DeleteCheck from "component/DeleteCheck";
+import OrderItem from "components/Order/OrderItem";
+import DeleteCheck from "components/Order/DeleteCheck";
+import { useSelector } from "react-redux";
 
-function Order({ items }) {
+function Order({ userId }) {
+  const items = useSelector(state => state.cart);
+
   return (
     <article className="order-container">
       <h3 className="order-title">주문하기</h3>
@@ -22,7 +24,7 @@ function Order({ items }) {
               <li className="order-list__none">선택된 상품이 없습니다.</li>
             )}
         </ul>
-        <DeleteCheck />
+        <DeleteCheck userId={userId} />
       </div>
       <div className="total-order">
         <p className="total-order__total">총 주문금액</p>
@@ -40,8 +42,4 @@ function Order({ items }) {
   );
 }
 
-function mapStateToProps(state) {
-  return { items: state.cart };
-}
-
-export default connect(mapStateToProps)(Order);
+export default Order;

@@ -1,5 +1,5 @@
 import { auth, database } from 'firebaseApp';
-import { NO_ITEM } from 'Storage/initStorage';
+import { NO_ITEM } from 'logic/initStorage';
 import React, { useState } from 'react';
 import 'css/Auth.css';
 

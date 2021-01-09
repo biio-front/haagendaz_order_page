@@ -1,23 +1,25 @@
-import addStorage from "Storage/addStorage";
+import addStorage from "logic/addStorage";
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { add } from "reducers/cart";
 import { addCheck, removeCheck } from 'reducers/checkOrderItem';
 import PropTypes from "prop-types";
 
-function OrderItem({ item, addItem_Cart, addItem_Ls, addCheck_Cart, removeCheck_Cart }) {
+function OrderItem({ item }) {
+  const dispatch = useDispatch();
+
   const { id, name, sort, price, picture, i } = item;
   const [number, setNumber] = useState(i);
   // 체크 토글 버튼. 체크: state에 추가, 체크취소: state에서 제외.
   const toggleChecked = (e, id) =>
-    e.target.checked ? addCheck_Cart(id) : removeCheck_Cart([id]);
+    dispatch(e.target.checked ? addCheck(id) : removeCheck(id));
   // +,- 버튼 클릭 시 상품 수량이 증가 또는 감소
   const increase_decrease = (plus_minus) => {
     setNumber(prev => prev + plus_minus);
     const _item = { ...item };
     _item.i = number + plus_minus;
-    addItem_Cart(_item);
-    addItem_Ls(_item);
+    dispatch(add(_item));
+    addStorage(_item);
   }
   return (
     <li className="order-list__li">
@@ -71,13 +73,4 @@ OrderItem.prototype = {
   i: PropTypes.number.isRequired
 };
 
-function mapDispatchToProps(dispatch, ownProps) {
-  const { userId } = ownProps;
-  return {
-    addItem_Cart: data => dispatch(add(data)),
-    addItem_Ls: data => addStorage(data, userId),
-    addCheck_Cart: data => dispatch(addCheck(data)),
-    removeCheck_Cart: data => dispatch(removeCheck(data))
-  };
-}
-export default connect(null, mapDispatchToProps)(OrderItem);
+export default OrderItem;

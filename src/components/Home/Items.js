@@ -1,5 +1,5 @@
 import React from "react";
-import Item from "component/Item";
+import Item from "components/Home/Item";
 import "css/Items.css";
 
 function Items({ data, onClickItem }) {

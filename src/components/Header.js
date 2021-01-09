@@ -3,7 +3,7 @@ import 'css/Header.css';
 import logo from '0_haagen-dazs-logo.png';
 import { Link } from "react-router-dom";
 import { auth } from 'firebaseApp';
-import { DATA_LS } from 'Storage/initStorage';
+import { DATA_LS } from 'logic/initStorage';
 import { useDispatch } from 'react-redux';
 import { reset } from 'reducers/cart';
 

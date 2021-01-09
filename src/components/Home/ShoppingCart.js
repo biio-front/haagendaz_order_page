@@ -1,9 +1,11 @@
 import React from "react";
 import "css/ShoppingCart.css";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-function ShoppingCart({ onClickItem, items, onChangePage }) {
+function ShoppingCart({ onClickItem }) {
+  const items = useSelector(state => state.cart);
+
   return (
     <aside className="shoppingcart">
       <ul className="shoppingcart__items"
@@ -25,15 +27,11 @@ function ShoppingCart({ onClickItem, items, onChangePage }) {
           ))
         )}
       </ul>
-      <Link to="/order" className="shoppingcart__order" onClick={onChangePage}>
+      <Link to="/order" className="shoppingcart__order">
         주문하기
       </Link>
     </aside>
   );
 }
 
-function mapStateToProps(state) {
-  return { items: state.cart };
-}
-
-export default connect(mapStateToProps)(ShoppingCart);
+export default ShoppingCart;

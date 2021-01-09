@@ -7,9 +7,10 @@ const checkOrderItemSlice = createSlice({
     addCheck: (state, action) => {
       state.push(action.payload);
     },
-    removeCheck: (state, action) =>
-      state.filter(item => action.payload.indexOf(item.id) === -1)
-    ,
+    removeCheck: (state, action) => {
+      console.log(action.payload);
+      return state.filter(id => id !== action.payload);
+    },
     removeAllCheck: (state, action) => {
       state = [action.payload];
     }

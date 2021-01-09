@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { add } from "reducers/cart";
 import "css/ClickItem.css";
 import { Link } from "react-router-dom";
-import addStorage from 'Storage/addStorage';
+import addStorage from 'logic/addStorage';
 
-function ClickItem({ item, addItem_Cart, addItem_Ls, onClose }) {
+function ClickItem({ item, onClose }) {
+  const dispatch = useDispatch();
+
   const { name, sort, amount, price, picture } = item;
   const [i, setNumber] = useState(item.i || 1);
   const increase = () => setNumber(i + 1);
@@ -53,8 +55,8 @@ function ClickItem({ item, addItem_Cart, addItem_Ls, onClose }) {
         <div className="click-item__btn">
           <button
             onClick={() => {
-              addItem_Cart({ ...item, i });
-              addItem_Ls({ ...item, i });
+              dispatch(add({ ...item, i }));
+              addStorage({ ...item, i });
               onClose();
             }}
           >
@@ -62,8 +64,8 @@ function ClickItem({ item, addItem_Cart, addItem_Ls, onClose }) {
           </button>
           <Link to="/order"
             onClick={() => {
-              addItem_Cart({ ...item, i });
-              addItem_Ls({ ...item, i });
+              dispatch(add({ ...item, i }));
+              addStorage({ ...item, i });
               onClose();
             }}
           >
@@ -75,12 +77,4 @@ function ClickItem({ item, addItem_Cart, addItem_Ls, onClose }) {
   );
 }
 
-function mapDispatchToProps(dispatch, ownProps) {
-  const { userId } = ownProps;
-  return {
-    addItem_Cart: data => dispatch(add(data)),
-    addItem_Ls: data => addStorage(data, userId)
-  };
-}
-
-export default connect(null, mapDispatchToProps)(ClickItem);
+export default ClickItem;

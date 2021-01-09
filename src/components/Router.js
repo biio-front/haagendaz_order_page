@@ -2,9 +2,9 @@ import React from "react";
 import { HashRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import Home from 'routes/Home';
 import Order from "routes/Order";
-import Header from "component/Header";
+import Header from "components/Header";
 import Auth from "routes/Auth";
-import Footer from "component/Footer";
+import Footer from "components/Footer";
 import "css/App.css";
 import "css/loader.css";
 
